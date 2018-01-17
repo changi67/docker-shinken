@@ -1,4 +1,4 @@
-FROM pockost/shinken:2.4-base
+FROM changi67/shinken:2.4-base
 MAINTAINER  Romain THERRAT
 
 # Install deps and create shinken user
