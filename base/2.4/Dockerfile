@@ -1,5 +1,7 @@
-FROM debian:jessie
-MAINTAINER  Romain THERRAT
+FROM debian:stretch-slim
+MAINTAINER Romain THERRAT
+
+ENV DEBIAN_FRONTEND noninteractive
 
 # Install deps and create shinken user
 RUN apt-get update && apt-get install -y python-pycurl python-setuptools python-cherrypy3 python-crypto monitoring-plugins-standard && \
