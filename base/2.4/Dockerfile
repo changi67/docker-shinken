@@ -4,7 +4,7 @@ MAINTAINER Romain THERRAT
 ENV DEBIAN_FRONTEND noninteractive
 
 # Install deps and create shinken user
-RUN apt-get update && apt-get install -y python-pycurl python-setuptools python-cherrypy3 python-crypto monitoring-plugins-standard && \
+RUN apt-get update && apt-get install -y --no-install-recommends python-pycurl python-setuptools python-cherrypy3 python-crypto monitoring-plugins-standard ca-certificates host && \
     easy_install pip && \
     useradd shinken && \
     apt-get -y autoremove && \
@@ -12,7 +12,7 @@ RUN apt-get update && apt-get install -y python-pycurl python-setuptools python-
     rm -rf /var/lib/apt/lists/*
 
 # Install shinken
-RUN pip install shinken==2.4 && \
+RUN pip install shinken==2.4.3 && \
     shinken --init && \
     rm -r /var/lib/shinken/doc/*
 
